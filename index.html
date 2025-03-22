@@ -14,7 +14,7 @@
         }
         #map-container {
             width: 100%;
-            height: 90vh;
+            height: calc(100vh - 50px); /* Leaves space for the keyboard */
         }
         iframe {
             width: 100%;
@@ -23,7 +23,7 @@
         }
         #fullscreen-btn {
             width: 100%;
-            height: 10vh;
+            height: 50px;
             background: #222;
             color: white;
             font-size: 18px;
@@ -36,7 +36,7 @@
 
     <!-- Embed GeaCron Map -->
     <div id="map-container">
-        <iframe src="https://geacron.com/map/atlas/mapal.html"></iframe>
+        <iframe id="map-frame" src="https://geacron.com/map/atlas/mapal.html"></iframe>
     </div>
 
     <!-- Full-Screen Mode Button -->
@@ -46,6 +46,14 @@
         function openFullScreen() {
             window.location.href = "https://geacron.com/map/atlas/mapal.html";
         }
+
+        // Adjust height when the keyboard appears
+        window.addEventListener("resize", function() {
+            let mapContainer = document.getElementById("map-container");
+            let windowHeight = window.innerHeight;
+            mapContainer.style.height = (windowHeight - 50) + "px";
+        });
     </script>
 
 </body>
+</html>
