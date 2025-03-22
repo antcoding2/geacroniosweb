@@ -1,27 +1,51 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>GeaCron Map</title>
     <style>
         body, html {
             margin: 0;
             padding: 0;
-            width: 100vw;
-            height: 100vh;
-            overflow: hidden; /* Prevents page scrolling */
-            position: fixed; /* Stops page movement */
-            touch-action: none; /* Disables unwanted gestures */
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: black;
+        }
+        #map-container {
+            width: 100%;
+            height: 90vh;
         }
         iframe {
-            width: 100vw;
-            height: 100vh;
+            width: 100%;
+            height: 100%;
             border: none;
-            position: absolute;
-            top: 0;
-            left: 0;
+        }
+        #fullscreen-btn {
+            width: 100%;
+            height: 10vh;
+            background: #222;
+            color: white;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <iframe src="https://geacron.com/map/atlas/mapal.html" frameborder="0"></iframe>
+
+    <!-- Embed GeaCron Map -->
+    <div id="map-container">
+        <iframe src="https://geacron.com/map/atlas/mapal.html"></iframe>
+    </div>
+
+    <!-- Full-Screen Mode Button -->
+    <button id="fullscreen-btn" onclick="openFullScreen()">Open Full-Screen Mode</button>
+
+    <script>
+        function openFullScreen() {
+            window.location.href = "https://geacron.com/map/atlas/mapal.html";
+        }
+    </script>
+
 </body>
-</html>
